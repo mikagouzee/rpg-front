@@ -1,6 +1,7 @@
 "use strict";
 var IGame = (function () {
-    function IGame() {
+    function IGame(myname) {
+        this.name = myname;
     }
     return IGame;
 }());

@@ -25,14 +25,11 @@ var CharacterComponent = (function () {
             .then(function (characters) { return _this.characters = characters; });
     };
     CharacterComponent.prototype.onSelect = function (character) {
+        console.log(character.characterName);
         this.selectedCharacter = character;
     };
     CharacterComponent.prototype.voirFiche = function (character) {
         this.router.navigate(['/characDetail', character.characterName]);
-    };
-    CharacterComponent.prototype.create = function (characterName, playerName) {
-        alert('Creation ongoing');
-        this.characterService.create(characterName, playerName);
     };
     CharacterComponent = __decorate([
         core_1.Component({

@@ -29,6 +29,7 @@ export class CharacterComponent implements OnInit{
     }
 
     onSelect(character: Character):void{
+        console.log(character.characterName);
         this.selectedCharacter = character;
     }
 
@@ -36,9 +37,5 @@ export class CharacterComponent implements OnInit{
         this.router.navigate(['/characDetail', character.characterName]);
     }
 
-    create(characterName:string, playerName:string){
-        alert('Creation ongoing');
-        this.characterService.create(characterName,playerName);
-    }
 
 }

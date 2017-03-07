@@ -9,4 +9,8 @@ export class IGame{
     SpendPoints:ICaracteristic[];
     professions:ICareer[];
     rules:string[];
+
+    constructor(myname:string){
+        this.name = myname;
+    }
 }

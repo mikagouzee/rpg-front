@@ -10,6 +10,7 @@ import { DashboardComponent} from './dashboard.component';
 import { CharacterComponent } from './character.component';
 import { CharacterService } from './character.service';
 import { CharacterDetailComponent } from './character-detail.component';
+import { CharacterCreationComponent } from './character-creation.component';
 
 import { SpendablePointViewComponent } from './SpendablePointViewComponent';
 import { SkillViewComponent } from './SkillViewComponent';
@@ -29,6 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
 
     CharacterComponent,
     CharacterDetailComponent,
+    CharacterCreationComponent,
+
     SpendablePointViewComponent,
     SkillViewComponent,
 

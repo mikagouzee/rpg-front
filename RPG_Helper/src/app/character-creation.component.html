@@ -1,0 +1,6 @@
+<h3>Creation</h3>
+    <p>Vous avez choisi de créer un personnage pour le jeu {{game.name}} ! Il ne vous reste qu'à entrer votre nom et celui de votre personnage.</p>
+
+    <input #characterName placeholder="character name" /><br/>
+    <input #playerName placeholder="player name"/><br/>
+    <button (click)="create(characterName.value,playerName.value,game); characterName.value='';playerName.value=''">Creer</button>

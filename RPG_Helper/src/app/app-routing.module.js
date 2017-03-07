@@ -11,16 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
-// import { HeroesComponent }  from './heroes.component';
-// import { HeroDetailComponent } from './hero-detail.component';
 var character_component_1 = require('./character.component');
 var character_detail_component_1 = require('./character-detail.component');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    // {path:'heroes', component:HeroesComponent},
     { path: 'characters', component: character_component_1.CharacterComponent },
-    // {path:'detail/:id', component: HeroDetailComponent},
     { path: 'characDetail/:characterName', component: character_detail_component_1.CharacterDetailComponent },
 ];
 var AppRoutingModule = (function () {

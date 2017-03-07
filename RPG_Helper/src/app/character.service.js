@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var Character_DTO_1 = require('./Character_DTO');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
 var CharacterService = (function () {
@@ -36,20 +37,19 @@ var CharacterService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    CharacterService.prototype.create = function (characterName, playerName) {
-        // let my_character:Character = new Character();
-        // my_character.characterName=characterName;
-        // my_character.playerName=playerName;
+    CharacterService.prototype.create = function (characterName, playerName, game) {
         var url = "http://localhost:58225/api/create/";
-        var params = new http_1.URLSearchParams();
-        params.append('characterName', characterName);
-        params.append('playerName', playerName);
-        return this.http.post(url, params)
-            .subscribe(function (data) {
-            console.log('ok');
-        }, function (error) {
-            console.log(error.json());
-        });
+        var myCharacter = new Character_DTO_1.Character_DTO();
+        myCharacter.characterName = characterName;
+        myCharacter.playerName = playerName;
+        myCharacter.gameName = game.name;
+        var headers = new http_1.Headers({ headers: { 'Content-Type': 'application/json' } });
+        var options = new http_1.RequestOptions({ headers: headers });
+        console.log(JSON.stringify(myCharacter));
+        return this.http.post(url, myCharacter, options)
+            .map(function (res) { return res.json(); })
+            .toPromise()
+            .catch(this.handleError);
     };
     CharacterService = __decorate([
         core_1.Injectable(), 

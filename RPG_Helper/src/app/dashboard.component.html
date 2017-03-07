@@ -1,2 +1,18 @@
 <h3>Bienvenue dans RPG helper</h3>
 
+<div *ngIf="!selectedGame">
+<p>Selectionnez le jeu pour lequel vous souhaitez créer un personnage! </p>
+<select [(ngModel)]="selectedGame"> 
+    <option *ngFor="let game of games" [ngValue]="game">
+    {{game.name}}</option>
+</select>
+</div>
+<!--<button (click)="create()">Commencer</button>-->
+
+<div *ngIf="selectedGame">
+<character-creation [game]="selectedGame"></character-creation>
+
+<button (click)="game_change()">Changer de jeu</button>
+
+<button (click)="checkState()">Check current selected_game </button>
+</div>

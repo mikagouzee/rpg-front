@@ -9,24 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { Hero }         from './hero';
-// import { HeroService }  from './hero.service';
+var http_1 = require('@angular/http');
+var game_service_1 = require('./game.service');
+var router_1 = require('@angular/router');
+require('rxjs/add/operator/toPromise');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(http, router, gameService) {
+        this.http = http;
+        this.router = router;
+        this.gameService = gameService;
     }
-    // heroes: Hero[] = [];
-    // constructor(private heroService: HeroService){}
+    //private gamesUrl = 'http://localhost:58225/api/games/getAll';
     DashboardComponent.prototype.ngOnInit = function () {
-        // this.heroService.getHeroes()
-        //     .then(heroes => this.heroes = heroes.slice(1,2))
+        this.getGames();
+    };
+    ;
+    DashboardComponent.prototype.getGames = function () {
+        var _this = this;
+        this.gameService.getGames()
+            .then(function (games) { return _this.games = games; });
+    };
+    DashboardComponent.prototype.game_change = function () {
+        this.selectedGame = null;
+    };
+    DashboardComponent.prototype.checkState = function () {
+        console.log(JSON.stringify(this.selectedGame));
     };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: './dashboard.component.html',
+            providers: [game_service_1.GameService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, game_service_1.GameService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

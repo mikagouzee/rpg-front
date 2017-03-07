@@ -13,13 +13,11 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
-// import { HeroDetailComponent } from './hero-detail.component';
-// import { HeroesComponent } from './heroes.component';
-// import { HeroService } from './hero.service';
 var dashboard_component_1 = require('./dashboard.component');
 var character_component_1 = require('./character.component');
 var character_service_1 = require('./character.service');
 var character_detail_component_1 = require('./character-detail.component');
+var character_creation_component_1 = require('./character-creation.component');
 var SpendablePointViewComponent_1 = require('./SpendablePointViewComponent');
 var SkillViewComponent_1 = require('./SkillViewComponent');
 var app_routing_module_1 = require('./app-routing.module');
@@ -36,16 +34,14 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                // HeroDetailComponent,
-                // HeroesComponent,
                 character_component_1.CharacterComponent,
                 character_detail_component_1.CharacterDetailComponent,
+                character_creation_component_1.CharacterCreationComponent,
                 SpendablePointViewComponent_1.SpendablePointViewComponent,
                 SkillViewComponent_1.SkillViewComponent,
                 dashboard_component_1.DashboardComponent
             ],
             providers: [
-                //  HeroService,
                 character_service_1.CharacterService],
             bootstrap: [app_component_1.AppComponent]
         }), 
