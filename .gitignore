@@ -1,0 +1,7 @@
+# COMPILED SOURCE #
+
+node_modules
+*.editorconfig
+bs-config.json
+*.zip
+*.txt
