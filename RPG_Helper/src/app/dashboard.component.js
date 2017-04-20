@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var game_service_1 = require('./game.service');
+var game_service_1 = require('./services/game.service');
 var router_1 = require('@angular/router');
 require('rxjs/add/operator/toPromise');
 var DashboardComponent = (function () {
@@ -39,7 +39,7 @@ var DashboardComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
-            templateUrl: './dashboard.component.html',
+            templateUrl: './templates/dashboard.component.html',
             providers: [game_service_1.GameService]
         }), 
         __metadata('design:paramtypes', [http_1.Http, router_1.Router, game_service_1.GameService])

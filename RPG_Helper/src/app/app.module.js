@@ -15,11 +15,11 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard.component');
 var character_component_1 = require('./character.component');
-var character_service_1 = require('./character.service');
+var character_service_1 = require('./services/character.service');
 var character_detail_component_1 = require('./character-detail.component');
 var character_creation_component_1 = require('./character-creation.component');
-var SpendablePointViewComponent_1 = require('./SpendablePointViewComponent');
-var SkillViewComponent_1 = require('./SkillViewComponent');
+var SpendablePointViewComponent_1 = require('./viewcomponent/SpendablePointViewComponent');
+var SkillViewComponent_1 = require('./viewcomponent/SkillViewComponent');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -42,7 +42,8 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent
             ],
             providers: [
-                character_service_1.CharacterService],
+                character_service_1.CharacterService
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

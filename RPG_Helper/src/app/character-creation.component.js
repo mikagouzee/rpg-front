@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_service_1 = require('./character.service');
-var IGame_1 = require('./IGame');
-var game_service_1 = require('./game.service');
+var character_service_1 = require('./services/character.service');
+var IGame_1 = require('./models/IGame');
+var game_service_1 = require('./services/game.service');
 var router_1 = require('@angular/router');
 require('rxjs/add/operator/switchMap');
 var CharacterCreationComponent = (function () {
@@ -37,7 +37,7 @@ var CharacterCreationComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'character-creation',
-            templateUrl: './character-creation.component.html',
+            templateUrl: './templates/character-creation.component.html',
             providers: [character_service_1.CharacterService, game_service_1.GameService]
         }), 
         __metadata('design:paramtypes', [character_service_1.CharacterService, game_service_1.GameService, router_1.ActivatedRoute])

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_service_1 = require('./character.service');
+var character_service_1 = require('./services/character.service');
 var router_1 = require('@angular/router');
 var CharacterComponent = (function () {
     function CharacterComponent(router, characterService) {
@@ -35,7 +35,7 @@ var CharacterComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-characters',
-            templateUrl: './character.component.html',
+            templateUrl: './templates/character.component.html',
             providers: [character_service_1.CharacterService]
         }), 
         __metadata('design:paramtypes', [router_1.Router, character_service_1.CharacterService])

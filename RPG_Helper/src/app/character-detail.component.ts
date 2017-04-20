@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Router }   from '@angular/router';
 
-import {CharacterService} from './character.service';
-import {Character}      from './character';
-import {ICaracteristic } from './ICaracteristic';
+import {CharacterService} from './services/character.service';
+import {Character}      from './models/character';
+import {ICaracteristic } from './models/ICaracteristic';
 
 import {ActivatedRoute, Params} from '@angular/router';
 import {Location}               from '@angular/common';
@@ -12,7 +12,7 @@ import 'rxjs/add/operator/switchMap'
 @Component({
     moduleId:module.id,
     selector:'my-character-detail',
-    templateUrl:'character-detail.component.html',
+    templateUrl:'./templates/character-detail.component.html',
     providers:[CharacterService],
     
 })

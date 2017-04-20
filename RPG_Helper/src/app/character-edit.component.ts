@@ -1,7 +1,7 @@
 import { Component, OnInit,Input, AfterContentInit } from '@angular/core';
-import { Character } from './character';
-import { ICaracteristic } from './ICaracteristic';
-import { CharacterService} from './character.service';
+import { Character } from './models/character';
+import { ICaracteristic } from './models/ICaracteristic';
+import { CharacterService} from './services/character.service';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -10,7 +10,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
     moduleId:module.id,
     selector:'character-edit',
-    templateUrl:'./character-edit.component.html',
+    templateUrl:'./templates/character-edit.component.html',
     providers:[CharacterService]
 
 })

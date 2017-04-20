@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {IGame } from './IGame';
+import {IGame } from './models/IGame';
 import {Http} from '@angular/http';
-import { GameService} from './game.service';
+import { GameService} from './services/game.service';
 import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/toPromise';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 @Component({
     moduleId:module.id,
     selector:'my-dashboard',
-    templateUrl: './dashboard.component.html',
+    templateUrl: './templates/dashboard.component.html',
     providers: [GameService]
 })
 

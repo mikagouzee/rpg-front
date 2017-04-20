@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_1 = require('./character');
-var character_service_1 = require('./character.service');
+var character_1 = require('./models/character');
+var character_service_1 = require('./services/character.service');
 var router_1 = require('@angular/router');
 require('rxjs/add/operator/switchMap');
 var CharacterEditComponent = (function () {
@@ -54,7 +54,7 @@ var CharacterEditComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'character-edit',
-            templateUrl: './character-edit.component.html',
+            templateUrl: './templates/character-edit.component.html',
             providers: [character_service_1.CharacterService]
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, character_service_1.CharacterService])

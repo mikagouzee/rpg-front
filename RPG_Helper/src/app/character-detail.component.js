@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var character_service_1 = require('./character.service');
-var character_1 = require('./character');
+var character_service_1 = require('./services/character.service');
+var character_1 = require('./models/character');
 var router_2 = require('@angular/router');
 var common_1 = require('@angular/common');
 require('rxjs/add/operator/switchMap');
@@ -41,7 +41,7 @@ var CharacterDetailComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-character-detail',
-            templateUrl: 'character-detail.component.html',
+            templateUrl: './templates/character-detail.component.html',
             providers: [character_service_1.CharacterService],
         }), 
         __metadata('design:paramtypes', [character_service_1.CharacterService, router_2.ActivatedRoute, common_1.Location, router_1.Router])

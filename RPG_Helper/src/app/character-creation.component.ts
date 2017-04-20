@@ -1,10 +1,10 @@
 import { Component, OnInit,Input, AfterContentInit } from '@angular/core';
-import { Character } from './character';
-import { ICaracteristic } from './ICaracteristic';
-import { CharacterService} from './character.service';
+import { Character } from './models/character';
+import { ICaracteristic } from './models/ICaracteristic';
+import { CharacterService} from './services/character.service';
 
-import { IGame }            from './IGame';
-import { GameService }      from './game.service';
+import { IGame }            from './models/IGame';
+import { GameService }      from './services/game.service';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
     moduleId:module.id,
     selector:'character-creation',
-    templateUrl:'./character-creation.component.html',
+    templateUrl:'./templates/character-creation.component.html',
     providers:[CharacterService, GameService]
 
 })
