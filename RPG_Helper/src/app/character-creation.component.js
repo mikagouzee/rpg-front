@@ -21,13 +21,7 @@ var CharacterCreationComponent = (function () {
         this.route = route;
     }
     CharacterCreationComponent.prototype.ngOnInit = function () {
-        // this.route.params
-        //     .switchMap((params:Params) => this.gameService.get(params['selectedGame']))
-        //     .subscribe(game => this.game = game);
-    };
-    CharacterCreationComponent.prototype.create = function (characterName, playerName, game) {
-        alert("Creation ongoing from 'creation-component' for game " + game.name);
-        this.characterService.create(characterName, playerName, game);
+        this.CharDTOBattr = new Array();
     };
     __decorate([
         core_1.Input(), 

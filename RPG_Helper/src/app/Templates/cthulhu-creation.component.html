@@ -1,0 +1,25 @@
+<h3> Creation</h3>
+
+<p>Vous avez choisi de créer un personnage pour le jeu {{game.name}} ! Il ne vous reste qu'à entrer votre nom, le nom de votre personnage, et à répartir ses caractéristiques.</p>
+
+   <input #characterName placeholder="character name" /><br/>
+   <input #playerName placeholder="player name"/><br/>
+
+
+<div *ngFor="let battr of game.BaseAttributes" >
+        <div *ngIf="!isRolled(battr)">
+            <label>{{battr.name}} : </label>  <button #{{battr.name}} (click)="onClickRoll(battr);" >Roll value</button>
+        </div>
+    </div>
+<hr>
+    <div *ngFor="let battr of CharDTOBattr">
+        <label>{{battr.name}} : </label><span>{{battr.value}}</span>
+    </div>
+    <hr>
+
+    <button (click)="create(characterName.value,playerName.value,game); characterName.value='';playerName.value=''">Creer</button>
+
+
+<hr>
+<!--TODO : ADD A history.back or something -->
+<!-- <button (click)="game_change()">Changer de jeu</button> -->

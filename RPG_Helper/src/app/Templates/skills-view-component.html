@@ -1,0 +1,15 @@
+
+<h4>Skills</h4>
+<div *ngFor="let skill of character.skills">
+    <span *ngIf="isJobSkill(skill)">
+        <label>{{skill.name}} : </label> {{skill.value}} (max {{skill.max}}) 
+    <!--<span *ngIf="_edit" >     <button (click)="increment_occupation_skill(skill)">+</button> <button (click)="decrement_occupation_skill(skill)">-</button></span>-->
+    </span>
+
+    <span *ngIf="!isJobSkill(skill)" >
+        <label>{{skill.name}} : </label> {{skill.value}} (max {{skill.max}}) 
+
+        <!--<span *ngIf="_edit"> <button (click)="increment_personal_skill(skill)">+</button> <button (click)="decrement_personal_skill(skill)">-</button></span>-->
+    </span>
+</div>
+    

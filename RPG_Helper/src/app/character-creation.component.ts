@@ -22,22 +22,21 @@ export class CharacterCreationComponent implements OnInit{
     @Input()
     game: IGame;
 
+    CharDTOBattr: ICaracteristic[];
+
     ngOnInit():void{
-        // this.route.params
-        //     .switchMap((params:Params) => this.gameService.get(params['selectedGame']))
-        //     .subscribe(game => this.game = game);
+        this.CharDTOBattr = new Array<ICaracteristic>();
     }
 
     constructor(
         private characterService:CharacterService,
         private gameService:GameService,
         private route:ActivatedRoute,
-
     ){}
 
-    create(characterName:string, playerName:string, game:IGame){
-        alert("Creation ongoing from 'creation-component' for game " + game.name);
-        this.characterService.create(characterName, playerName, game);
-    }
+
+
+
+
 
 }

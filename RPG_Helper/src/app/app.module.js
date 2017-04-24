@@ -18,6 +18,8 @@ var character_component_1 = require('./character.component');
 var character_service_1 = require('./services/character.service');
 var character_detail_component_1 = require('./character-detail.component');
 var character_creation_component_1 = require('./character-creation.component');
+var fallout_character_creation_component_1 = require('./fallout-character-creation.component');
+var cthulhu_character_creation_component_1 = require('./cthulhu-character-creation.component');
 var SpendablePointViewComponent_1 = require('./viewcomponent/SpendablePointViewComponent');
 var SkillViewComponent_1 = require('./viewcomponent/SkillViewComponent');
 var app_routing_module_1 = require('./app-routing.module');
@@ -37,6 +39,8 @@ var AppModule = (function () {
                 character_component_1.CharacterComponent,
                 character_detail_component_1.CharacterDetailComponent,
                 character_creation_component_1.CharacterCreationComponent,
+                fallout_character_creation_component_1.FalloutCharacterCreationComponent,
+                cthulhu_character_creation_component_1.CthulhuCharacterCreationComponent,
                 SpendablePointViewComponent_1.SpendablePointViewComponent,
                 SkillViewComponent_1.SkillViewComponent,
                 dashboard_component_1.DashboardComponent

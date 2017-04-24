@@ -1,0 +1,32 @@
+<h3>Bienvenue dans RPG helper</h3>
+
+<div *ngIf="!selectedGame">
+    
+<p>Selectionnez le jeu pour lequel vous souhaitez créer un personnage! </p>
+
+<select [(ngModel)]="selectedGame"> 
+    <option *ngFor="let game of games" [ngValue]="game">
+    {{game.name}}</option>
+</select>
+
+
+<!--<button (click)="onClick()">Click me</button>-->
+
+</div>
+<!--<button (click)="create()">Commencer</button>-->
+
+<div *ngIf="selectedGame">
+    <button (click)="checkState()">Check current selected_game </button> |
+
+    <div *ngIf="selectedGame.name == 'Fallout' ">
+        <fallout-creation [game]="selectedGame"></fallout-creation>
+    </div>
+
+    <div *ngIf="selectedGame.name == 'Call Of Cthulhu'">    
+        <cthulhu-creation [game]="selectedGame"></cthulhu-creation>
+    </div>
+    
+<!--<character-creation [game]="selectedGame"></character-creation>-->
+</div>
+
+

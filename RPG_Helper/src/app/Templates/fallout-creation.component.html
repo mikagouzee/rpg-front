@@ -1,0 +1,19 @@
+<h3> Creation </h3>
+
+<p>Vous avez choisi de créer un personnage pour le jeu Fallout !
+     Il ne vous reste qu'à entrer votre nom, le nom de votre personnage,
+      et à répartir ses caractéristiques.</p>
+
+   <input #characterName placeholder="character name" /><br/>
+   <input #playerName placeholder="player name"/><br/>
+
+<div *ngFor="let battr of game.BaseAttributes">
+            <label> {{battr.name}} </label><span>{{battr.value}}</span><button (click)="AddOne(battr)">+</button><button (click)="RemoveOne(battr)">-</button><button (click)="validate(battr)">Validate</button>
+    </div>
+<p id="remainingPoints">Remaining Points : 30</p>
+<button (click)="create(characterName.value,playerName.value,game); characterName.value='';playerName.value=''">Creer</button> 
+
+
+<hr>
+<!--TODO : ADD A history.back or something -->
+<!-- <button (click)="game_change()">Changer de jeu</button> -->

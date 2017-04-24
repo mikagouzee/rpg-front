@@ -37,12 +37,11 @@ export class DashboardComponent implements OnInit{
         this.selectedGame=null;
     }
 
+
+
     checkState():void{
         console.log(JSON.stringify(this.selectedGame));
     }
 
-    // create():void{
-    //     console.log(this.selectedGame);
-    //     this.router.navigate(['/createCharacter', this.selectedGame]);
-    // }
+
 }
