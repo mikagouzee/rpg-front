@@ -1,17 +1,42 @@
-<div *ngIf="character">
+<div *ngIf="character && !_edit">
+    <button (click)="edit()">Edit</button>
+
     <h2>{{character.characterName}}</h2>
     {{character.careerName}} appartenant à {{character.playerName}}
 
-
+    <h4>Base Attributes</h4>
     <div *ngFor="let batr of character.baseAttr">
         <label>{{batr.name}} :</label> {{batr.value}} sur un maximum de {{batr.max}}
     </div>
     
-    <my-character-skills [_edit]="_edit"  [character]="character"></my-character-skills>
+    <h4>Skills</h4>
+    <div *ngFor="let skill of character.skills">
+        <label>{{skill.name}}</label> {{skill.value}}
+    </div>
 
-    <my-character-spendable-points [character]="character"></my-character-spendable-points>
+    <h4>Stats</h4>
+    <div *ngFor="let stat of character.stats">
+        <label>{{stat.name}}</label> {{stat.value}}
+    </div>
 
-<button (click)="edit()">Edit</button>
+    <h4>Spendable Points</h4>
+    <div *ngFor="let spoint of character.spendPoints">
+        <label>{{spoint.name}}</label> {{spoint.value}}
+    </div>
+
 </div>
+
+<div *ngIf="_edit">
+
+<div *ngIf="character.game.name=='Fallout'">
+    <fallout-edit [mycharacter]="character" ></fallout-edit>
+</div>
+
+<div *ngIf="character.game.name=='Call Of Cthulhu'">
+    <cthulhu-edit [mycharacter]="character"></cthulhu-edit>
+</div>
+
+</div>
+
 <!--
 <button (click)="seeJob()"> See job skills </button>-->

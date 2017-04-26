@@ -1,0 +1,26 @@
+    <h2>{{mycharacter.characterName}}</h2>
+    {{mycharacter.careerName}} appartenant à {{mycharacter.playerName}}
+    <br>
+    <button (click)="validate()">Valider</button>
+
+    <h4>Base Attributes</h4>
+    <div *ngFor="let batr of mycharacter.baseAttr">
+        <label>{{batr.name}} :</label> {{batr.value}} sur un maximum de {{batr.max}}
+    </div>
+    
+    <h4>Skills</h4>
+    <div *ngFor="let skill of mycharacter.skills">
+        <label>{{skill.name}}</label> {{skill.value}} % 
+        <button (click)="increment(skill)">+</button>
+        <button (click)="decrement(skill)">-</button>
+    </div>
+
+    <h4>Stats</h4>
+    <div *ngFor="let stat of mycharacter.stats">
+        <label>{{stat.name}}</label> {{stat.value}}
+    </div>
+
+    <h4>Spendable Points</h4>
+    <div *ngFor="let spoint of mycharacter.spendPoints">
+        <label>{{spoint.name}}</label> {{spoint.value}}
+    </div>

@@ -37,26 +37,26 @@ export class CharacterEditComponent implements OnInit{
         private characterService: CharacterService
     ){}
 
-    increment_occupation_skill(target: ICaracteristic){
-        let skillPoint = this.character.spendPoints.find(i => i.name == "occupation_skill_points").value;
+    // increment_occupation_skill(target: ICaracteristic){
+    //     let skillPoint = this.character.spendPoints.find(i => i.name == "occupation_skill_points").value;
 
-        if (skillPoint > 0 && target.value < target.max){
-                skillPoint--;
-                target.value++;
-                this.character.spendPoints.find(i => i.name == "occupation_skill_points").value = skillPoint;
-        }
-    }
+    //     if (skillPoint > 0 && target.value < target.max){
+    //             skillPoint--;
+    //             target.value++;
+    //             this.character.spendPoints.find(i => i.name == "occupation_skill_points").value = skillPoint;
+    //     }
+    // }
 
-    decrement_occupation_skill(target:ICaracteristic){
-        let skillPoint = this.character.spendPoints.find(i => i.name == "occupation_skill_points").value;
+    // decrement_occupation_skill(target:ICaracteristic){
+    //     let skillPoint = this.character.spendPoints.find(i => i.name == "occupation_skill_points").value;
 
-        if (skillPoint > 0 && skillPoint < this.starting_occupation_skill_point){
-            if (target.value > 0){
-                skillPoint++;
-                target.value--;
-                this.character.spendPoints.find(i => i.name == "occupation_skill_points").value = skillPoint;
-            }
-        }
-    }
+    //     if (skillPoint > 0 && skillPoint < this.starting_occupation_skill_point){
+    //         if (target.value > 0){
+    //             skillPoint++;
+    //             target.value--;
+    //             this.character.spendPoints.find(i => i.name == "occupation_skill_points").value = skillPoint;
+    //         }
+    //     }
+    // }
 
 }

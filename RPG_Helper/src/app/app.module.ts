@@ -14,6 +14,8 @@ import { CharacterCreationComponent } from './character-creation.component';
 
 import { FalloutCharacterCreationComponent } from './fallout-character-creation.component';
 import { CthulhuCharacterCreationComponent }  from './cthulhu-character-creation.component';
+import { FalloutCharacterEditComponent }  from './fallout-character-edit.component';
+import { CthulhuCharacterEditComponent } from './cthulhu-character-edit.component';
 
 import { SpendablePointViewComponent } from './viewcomponent/SpendablePointViewComponent';
 import { SkillViewComponent } from './viewcomponent/SkillViewComponent';
@@ -37,9 +39,11 @@ import { AppRoutingModule } from './app-routing.module';
 
     FalloutCharacterCreationComponent,
     CthulhuCharacterCreationComponent,
+    FalloutCharacterEditComponent,
+    CthulhuCharacterEditComponent,
 
-    SpendablePointViewComponent,
-    SkillViewComponent,
+    // SpendablePointViewComponent,
+    // SkillViewComponent,
 
     DashboardComponent
    ],

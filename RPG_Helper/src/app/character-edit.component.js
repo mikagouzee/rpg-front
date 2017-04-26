@@ -28,24 +28,6 @@ var CharacterEditComponent = (function () {
     CharacterEditComponent.prototype.ngAfterContentInit = function () {
         this.starting_occupation_skill_point = this.character.spendPoints.find(function (i) { return i.name == "occupation_skill_point"; }).value;
     };
-    CharacterEditComponent.prototype.increment_occupation_skill = function (target) {
-        var skillPoint = this.character.spendPoints.find(function (i) { return i.name == "occupation_skill_points"; }).value;
-        if (skillPoint > 0 && target.value < target.max) {
-            skillPoint--;
-            target.value++;
-            this.character.spendPoints.find(function (i) { return i.name == "occupation_skill_points"; }).value = skillPoint;
-        }
-    };
-    CharacterEditComponent.prototype.decrement_occupation_skill = function (target) {
-        var skillPoint = this.character.spendPoints.find(function (i) { return i.name == "occupation_skill_points"; }).value;
-        if (skillPoint > 0 && skillPoint < this.starting_occupation_skill_point) {
-            if (target.value > 0) {
-                skillPoint++;
-                target.value--;
-                this.character.spendPoints.find(function (i) { return i.name == "occupation_skill_points"; }).value = skillPoint;
-            }
-        }
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', character_1.Character)

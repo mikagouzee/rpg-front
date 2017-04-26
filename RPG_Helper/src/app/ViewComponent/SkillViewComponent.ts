@@ -58,19 +58,7 @@ export class SkillViewComponent implements OnInit{
     //     }
     // }
 
-    isJobSkill(skill:ICaracteristic):boolean{
-        let isJob:boolean = false;
-        console.log("In IsJob Skill : character has metier " + this.character.metier.name);
 
-        for(var icar of this.character.metier.jobSkills){
-            if(icar.name == skill.name){
-                console.log("skill "+skill.name+" is a job skill.");
-                isJob = true;
-            }
-        }
-
-        return isJob;
-    }
 
 
     // isJobSkill():void{
