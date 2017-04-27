@@ -56,7 +56,7 @@ export class FalloutCharacterEditComponent implements OnInit{
         //TO DO : RECORD CHARACTER WITH CHARACTERSERVICE
         console.log("Validation ongoing");
 
-        this.characterService.update(this.mycharacter);
+        //this.characterService.update(this.mycharacter);
     }
 
 }

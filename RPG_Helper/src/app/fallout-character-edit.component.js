@@ -45,7 +45,7 @@ var FalloutCharacterEditComponent = (function () {
     FalloutCharacterEditComponent.prototype.validate = function () {
         //TO DO : RECORD CHARACTER WITH CHARACTERSERVICE
         console.log("Validation ongoing");
-        this.characterService.update(this.mycharacter);
+        //this.characterService.update(this.mycharacter);
     };
     __decorate([
         core_1.Input(), 

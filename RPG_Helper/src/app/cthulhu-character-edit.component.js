@@ -26,9 +26,11 @@ var CthulhuCharacterEditComponent = (function () {
                 var sk = _a[_i];
                 if (sk.name.toLowerCase() == "occupation skill points") {
                     this.occupationSkillPoint = sk.value;
+                    this.ospStartValue = sk.value;
                 }
                 else if (sk.name.toLowerCase() == "personal interest skill points") {
                     this.personalSkillPoint = sk.value;
+                    this.pspStartValue = sk.value;
                 }
             }
         }
@@ -49,6 +51,7 @@ var CthulhuCharacterEditComponent = (function () {
                 this.occupationSkillPoint > 0) {
                 skill.value += 1;
                 this.occupationSkillPoint -= 1;
+                this.mycharacter.spendPoints.find(function (s) { return s.name == "Occupation skill points"; }).value = this.occupationSkillPoint;
             }
         }
         else {
@@ -56,6 +59,7 @@ var CthulhuCharacterEditComponent = (function () {
                 this.personalSkillPoint > 0) {
                 skill.value += 1;
                 this.personalSkillPoint -= 1;
+                this.mycharacter.spendPoints.find(function (s) { return s.name == "Personal interest skill points"; }).value = this.personalSkillPoint;
             }
         }
     };
@@ -65,16 +69,18 @@ var CthulhuCharacterEditComponent = (function () {
         if (this.isJobSkill(skill)) {
             if (skill.value > 0 &&
                 !(skill.value < toCheck.value) &&
-                this.occupationSkillPoint < this.mycharacter.spendPoints.find(function (s) { return s.name.toLowerCase() == "occupation skill points"; }).value) {
+                this.occupationSkillPoint < this.ospStartValue) {
                 skill.value -= 1;
                 this.occupationSkillPoint += 1;
+                this.mycharacter.spendPoints.find(function (s) { return s.name == "Occupation skill points"; }).value = this.occupationSkillPoint;
             }
         }
         else {
             if (skill.value > 0 &&
-                this.personalSkillPoint < this.mycharacter.spendPoints.find(function (s) { return s.name.toLowerCase() == "personal interest skill points"; }).value) {
+                this.personalSkillPoint < this.pspStartValue) {
                 skill.value -= 1;
                 this.personalSkillPoint += 1;
+                this.mycharacter.spendPoints.find(function (s) { return s.name == "Personal interest skill points"; }).value = this.personalSkillPoint;
             }
         }
     };
