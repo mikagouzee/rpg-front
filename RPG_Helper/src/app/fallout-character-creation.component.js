@@ -17,6 +17,7 @@ var FalloutCharacterCreationComponent = (function () {
     }
     FalloutCharacterCreationComponent.prototype.ngOnInit = function () {
         this.CharDTOBattr = new Array();
+        this.career = this.game.professions[0];
     };
     FalloutCharacterCreationComponent.prototype.AddOne = function (battr) {
         if (battr.value < battr.max && this.checkCurrent() < 31)
@@ -61,9 +62,14 @@ var FalloutCharacterCreationComponent = (function () {
             alert("You haven't validate all your points. You have validate : " + included);
         }
         else {
-            alert("Creation ongoing from 'creation-component' for game " + game.name + " with base attributes : " + this.CharDTOBattr.toString());
-            this.characterService.createWithBattr(characterName, playerName, game, this.CharDTOBattr);
+            alert("Creation ongoing from 'creation-component' for game " + game.name
+                + " with base attributes : " + this.CharDTOBattr.toString());
+            this.characterService.createWithBattr(characterName, playerName, game, this.career, this.CharDTOBattr);
         }
+    };
+    FalloutCharacterCreationComponent.prototype.onChange = function (career) {
+        alert(career.name);
+        this.career = career;
     };
     __decorate([
         core_1.Input(), 

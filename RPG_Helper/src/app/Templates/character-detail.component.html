@@ -4,39 +4,83 @@
     <h2>{{character.characterName}}</h2>
     {{character.careerName}} appartenant à {{character.playerName}}
 
-    <h4>Base Attributes</h4>
-    <div *ngFor="let batr of character.baseAttr">
-        <label>{{batr.name}} :</label> {{batr.value}} sur un maximum de {{batr.max}}
-    </div>
-    
-    <h4>Skills</h4>
-    <div *ngFor="let skill of character.skills">
-        <label>{{skill.name}}</label> {{skill.value}}
+<!--FIRST ROW-->
+    <div class="row">
+        <!---->
+        <!--COLUMN FOR BASE ATTR-->
+        <div class="col-lg-4 col-md-4 col-sm-8">
+            
+            <h4>Base Attributes</h4>
+                <table class="table">
+                    <tr>
+                        <td>Base Attribute</td><td>Value</td>
+                    </tr>
+                    <tr *ngFor="let battr of character.baseAttr">
+                        <td>{{battr.name}}</td><td>{{battr.value}} (max : {{battr.max}} )</td>
+                    </tr>
+                </table>
+        </div>
+
+                <!--COLUMN FOR STATS-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <h4>Stats</h4>
+
+            <table  class="table">
+                <tr>
+                    <td>Stat</td><td>Value</td>
+                </tr>
+                <tr *ngFor="let stat of character.stats">
+                    <td>{{stat.name}}</td><td>{{stat.value}}</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
 
-    <h4>Stats</h4>
-    <div *ngFor="let stat of character.stats">
-        <label>{{stat.name}}</label> {{stat.value}}
-    </div>
 
-    <h4>Spendable Points</h4>
-    <div *ngFor="let spoint of character.spendPoints">
-        <label>{{spoint.name}}</label> {{spoint.value}}
+<!--SECOND ROW-->
+    <div class="row">
+
+        <!--COLUMN FOR SKILLS-->
+        <div class="col-lg-4 col-md-4 col-sm-8">
+            <h4>Skills</h4>
+                <table  class="table">
+                    <tr>
+                        <td>Skill</td><td>Value</td>
+                    </tr>
+                    <tr *ngFor="let skill of character.skills">
+                        <td>{{skill.name}}</td><td>{{skill.value}}</td>
+                    </tr>
+                </table>
+        </div>
+
+
+        <!--COLUMN FOR SPENDABLE POINTS-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <h4>Spendable points</h4>
+            <table class="table">
+                <tr>
+                    <td>Spendable</td><td>Value</td>
+                </tr>
+                <tr *ngFor="let sPoint of character.spendPoints">
+                    <td>{{sPoint.name}}</td><td>{{sPoint.value}}</td>
+                </tr>
+            </table>
+        </div>
+
+
     </div>
 
 </div>
 
 <div *ngIf="_edit">
 
-<div *ngIf="character.game.name=='Fallout'">
-    <fallout-edit [mycharacter]="character" ></fallout-edit>
-</div>
+    <div *ngIf="character.game.name=='Fallout'">
+        <fallout-edit [mycharacter]="character" ></fallout-edit>
+    </div>
 
-<div *ngIf="character.game.name=='Call Of Cthulhu'">
-    <cthulhu-edit [mycharacter]="character"></cthulhu-edit>
-</div>
+    <div *ngIf="character.game.name=='Call Of Cthulhu'">
+        <cthulhu-edit [mycharacter]="character"></cthulhu-edit>
+    </div>
 
 </div>
-
-<!--
-<button (click)="seeJob()"> See job skills </button>-->

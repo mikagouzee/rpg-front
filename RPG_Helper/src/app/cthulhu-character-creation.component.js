@@ -18,6 +18,7 @@ var CthulhuCharacterCreationComponent = (function () {
     }
     CthulhuCharacterCreationComponent.prototype.ngOnInit = function () {
         this.CharDTOBattr = new Array();
+        this.career = this.game.professions[0];
     };
     CthulhuCharacterCreationComponent.prototype.onClickRoll = function (battr) {
         var toBePush = new ICaracteristic_1.ICaracteristic();
@@ -28,6 +29,7 @@ var CthulhuCharacterCreationComponent = (function () {
         console.log("We will add " + battr.name + " to the array with val " + randomVal);
         toBePush.name = battr.name;
         toBePush.value = randomVal;
+        battr.value = randomVal;
         this.CharDTOBattr.push(toBePush);
     };
     CthulhuCharacterCreationComponent.prototype.isRolled = function (battr) {
@@ -35,7 +37,6 @@ var CthulhuCharacterCreationComponent = (function () {
         for (var _i = 0, _a = this.CharDTOBattr; _i < _a.length; _i++) {
             var icar = _a[_i];
             if (icar.name == battr.name) {
-                console.log("We already rolled " + battr.name);
                 isRolled = true;
             }
         }
@@ -43,7 +44,10 @@ var CthulhuCharacterCreationComponent = (function () {
     };
     CthulhuCharacterCreationComponent.prototype.create = function (characterName, playerName, game) {
         alert("Creation ongoing from 'creation-component' for game " + game.name);
-        this.characterService.createWithBattr(characterName, playerName, game, this.CharDTOBattr);
+        this.characterService.createWithBattr(characterName, playerName, game, this.career, this.CharDTOBattr);
+    };
+    CthulhuCharacterCreationComponent.prototype.onChange = function (career) {
+        this.career = career;
     };
     __decorate([
         core_1.Input(), 

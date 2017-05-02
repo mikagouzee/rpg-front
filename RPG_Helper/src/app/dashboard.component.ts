@@ -15,9 +15,8 @@ import 'rxjs/add/operator/toPromise';
 
 export class DashboardComponent implements OnInit{
     //games:string[];
-    games:IGame[]
-
-    selectedGame:string; 
+    games:IGame[];
+    selectedGame:string;
     //private gamesUrl = 'http://localhost:58225/api/games/getAll';
 
     ngOnInit():void{
@@ -36,11 +35,13 @@ export class DashboardComponent implements OnInit{
     game_change():void{
         this.selectedGame=null;
     }
-
-
-
+    
     checkState():void{
         console.log(JSON.stringify(this.selectedGame));
+    }
+
+    onChange(game:any){
+        this.selectedGame = game;
     }
 
 

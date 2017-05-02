@@ -4,6 +4,7 @@ import { Character } from '../models/character';
 import { Character_DTO } from '../models/character_DTO';
 import { IGame } from '../models/IGame';
 import { ICaracteristic } from '../models/ICaracteristic';
+import { ICareer } from '../models/ICareer';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -60,46 +61,38 @@ export class CharacterService{
                 .catch(this.handleError);   
     }
 
-    createWithBattr(characterName:string, playerName:string, game:IGame, charDtoBattr:ICaracteristic[]){
-    const url = `http://localhost:58225/api/create/`;
+    createWithBattr(characterName:string, playerName:string, game:IGame, career:ICareer, charDtoBattr:ICaracteristic[]){
+        const url = `http://localhost:58225/api/create/`;
 
-    let myCharacter: Character_DTO = new Character_DTO();
-    myCharacter.characterName = characterName;
-    myCharacter.playerName=playerName;
-    myCharacter.gameName = game.name;
-    myCharacter.baseAttr = charDtoBattr;
-    
+        let myCharacter: Character_DTO = new Character_DTO();
+            myCharacter.characterName = characterName;
+            myCharacter.playerName = playerName;
+            myCharacter.gameName = game.name;
+            myCharacter.baseAttr = charDtoBattr;
+            myCharacter.metier = career;
 
-    let headers = new Headers({headers: {'Content-Type': 'application/json'}});
-    let options = new RequestOptions({headers:headers});
+        let headers = new Headers({headers: {'Content-Type': 'application/json'}});
+        let options = new RequestOptions({headers:headers});
 
-    console.log(JSON.stringify(myCharacter));
+        console.log(JSON.stringify(myCharacter));
 
-    return this.http.post(url, myCharacter, options)
+        return this.http.post(url, myCharacter, options)
             .map((res)=>{return res.json()})
             .toPromise()
             .catch(this.handleError);   
 }
 
-    
-    // create(characterName:string, playerName:string){
-    //     // let my_character:Character = new Character();
-    //     // my_character.characterName=characterName;
-    //     // my_character.playerName=playerName;
-    //     const url = `http://localhost:58225/api/create/`;
-
-    //     let params = new URLSearchParams();
-    //     params.append('characterName', characterName);
-    //     params.append('playerName', playerName);
-
-    //     return this.http.post( url, params)
-    //             .subscribe(data => {
-    //                 console.log('ok');
-    //             },
-    //             error=>{
-    //                 console.log(error.json());
-    //             });
-    // }
+    update(aCharacter:Character){
+        const url = 'http://localhost:58225/api/update';
+        
+        let headers = new Headers({headers: {'Content-Type': 'application/json'}});
+        let options = new RequestOptions({headers:headers});
+        console.log(aCharacter.baseAttr);
+        return this.http.put(url, aCharacter, options)
+                .map((res)=>{return res.json()})
+                .toPromise()
+                .catch(this.handleError);
+    }
 
 
 }

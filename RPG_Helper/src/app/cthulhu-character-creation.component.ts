@@ -2,6 +2,7 @@ import { Component, Input, OnInit}      from '@angular/core';
 import { ICaracteristic }               from './models/ICaracteristic';
 import { IGame }                        from './models/IGame';
 import { CharacterService }             from './services/character.service';
+import { ICareer }                      from './models/ICareer';
 
 @Component({
     moduleId:module.id,
@@ -13,12 +14,14 @@ import { CharacterService }             from './services/character.service';
 
 export class CthulhuCharacterCreationComponent implements OnInit {
     CharDTOBattr: ICaracteristic[];
+    career:ICareer;
 
     @Input()
     game:IGame;
 
     ngOnInit():void{
         this.CharDTOBattr = new Array<ICaracteristic>();
+        this.career = this.game.professions[0];
     }
 
     constructor(private characterService:CharacterService){}
@@ -34,6 +37,7 @@ export class CthulhuCharacterCreationComponent implements OnInit {
         console.log("We will add "+battr.name+" to the array with val " + randomVal);
         toBePush.name = battr.name;
         toBePush.value = randomVal;
+        battr.value = randomVal;
         this.CharDTOBattr.push(toBePush);
     }
 
@@ -42,17 +46,19 @@ export class CthulhuCharacterCreationComponent implements OnInit {
 
         for(var icar of this.CharDTOBattr){
             if(icar.name == battr.name){
-                console.log("We already rolled "+battr.name);
                 isRolled = true;
             }
         }
         return isRolled;
     }
 
-
-        create(characterName:string, playerName:string, game:IGame){
+    create(characterName:string, playerName:string, game:IGame){
         alert("Creation ongoing from 'creation-component' for game " + game.name);
-        this.characterService.createWithBattr(characterName, playerName, game, this.CharDTOBattr);
+        this.characterService.createWithBattr(characterName, playerName, game,this.career, this.CharDTOBattr);
+    }
+
+    onChange(career:any){
+        this.career=career;
     }
 
 }

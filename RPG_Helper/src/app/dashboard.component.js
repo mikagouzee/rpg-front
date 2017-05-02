@@ -35,6 +35,9 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.checkState = function () {
         console.log(JSON.stringify(this.selectedGame));
     };
+    DashboardComponent.prototype.onChange = function (game) {
+        this.selectedGame = game;
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

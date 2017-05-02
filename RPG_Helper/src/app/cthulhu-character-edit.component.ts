@@ -20,6 +20,8 @@ export class CthulhuCharacterEditComponent implements OnInit{
     occupationSkillPoint : number;
     ospStartValue:number;
 
+    // mygame: IGame;
+
     personalSkillPoint: number;
     pspStartValue:number;
 
@@ -28,6 +30,8 @@ export class CthulhuCharacterEditComponent implements OnInit{
     //onInit
     ngOnInit():void{
         this.skillFirstValue = new Array<ICaracteristic>();
+
+        //this.mygame = this.mycharacter.game;
 
         //get base skill point
         if(this.mycharacter != null){
@@ -56,7 +60,7 @@ export class CthulhuCharacterEditComponent implements OnInit{
 
     //methods
     validate():void{
-        alert("You clicked on validate!");
+        this.characterService.update(this.mycharacter);
     }  
 
     increment(skill:any):void{

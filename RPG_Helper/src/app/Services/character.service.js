@@ -51,17 +51,28 @@ var CharacterService = (function () {
             .toPromise()
             .catch(this.handleError);
     };
-    CharacterService.prototype.createWithBattr = function (characterName, playerName, game, charDtoBattr) {
+    CharacterService.prototype.createWithBattr = function (characterName, playerName, game, career, charDtoBattr) {
         var url = "http://localhost:58225/api/create/";
         var myCharacter = new character_DTO_1.Character_DTO();
         myCharacter.characterName = characterName;
         myCharacter.playerName = playerName;
         myCharacter.gameName = game.name;
         myCharacter.baseAttr = charDtoBattr;
+        myCharacter.metier = career;
         var headers = new http_1.Headers({ headers: { 'Content-Type': 'application/json' } });
         var options = new http_1.RequestOptions({ headers: headers });
         console.log(JSON.stringify(myCharacter));
         return this.http.post(url, myCharacter, options)
+            .map(function (res) { return res.json(); })
+            .toPromise()
+            .catch(this.handleError);
+    };
+    CharacterService.prototype.update = function (aCharacter) {
+        var url = 'http://localhost:58225/api/update';
+        var headers = new http_1.Headers({ headers: { 'Content-Type': 'application/json' } });
+        var options = new http_1.RequestOptions({ headers: headers });
+        console.log(aCharacter.baseAttr);
+        return this.http.put(url, aCharacter, options)
             .map(function (res) { return res.json(); })
             .toPromise()
             .catch(this.handleError);

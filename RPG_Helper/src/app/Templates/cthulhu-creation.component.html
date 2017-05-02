@@ -5,19 +5,24 @@
    <input #characterName placeholder="character name" /><br/>
    <input #playerName placeholder="player name"/><br/>
 
+    <select [(ngModel)]="career" (ngModelChange)="onChange($event)">
+        <option *ngFor="let career of game.professions" [ngValue]="career">
+            {{career.name}}
+        </option>
+   </select>
+   <hr>
 
-<div *ngFor="let battr of game.BaseAttributes" >
-        <div *ngIf="!isRolled(battr)">
-            <label>{{battr.name}} : </label>  <button #{{battr.name}} (click)="onClickRoll(battr);" >Roll value</button>
-        </div>
-    </div>
-<hr>
-    <div *ngFor="let battr of CharDTOBattr">
-        <label>{{battr.name}} : </label><span>{{battr.value}}</span>
-    </div>
-    <hr>
+<table>
+    <tr>
+        <td>Base Attribute</td><td>Action</td>
+    </tr>
+    <tr *ngFor="let battr of game.BaseAttributes">
+        <td>{{battr.name}}</td> <td *ngIf="!isRolled(battr)">  <button #{{battr.name}} (click)="onClickRoll(battr);" >Roll value</button> </td>
+        <td *ngIf="isRolled(battr)">{{battr.value}}</td>
+    <tr>        
+</table>
 
-    <button (click)="create(characterName.value,playerName.value,game); characterName.value='';playerName.value=''">Creer</button>
+    <button *ngIf="CharDTOBattr.length == 8" (click)="create(characterName.value,playerName.value,game); characterName.value='';playerName.value=''">Creer</button>
 
 
 <hr>

@@ -20,6 +20,7 @@ var CthulhuCharacterEditComponent = (function () {
     //onInit
     CthulhuCharacterEditComponent.prototype.ngOnInit = function () {
         this.skillFirstValue = new Array();
+        //this.mygame = this.mycharacter.game;
         //get base skill point
         if (this.mycharacter != null) {
             for (var _i = 0, _a = this.mycharacter.spendPoints; _i < _a.length; _i++) {
@@ -43,7 +44,7 @@ var CthulhuCharacterEditComponent = (function () {
     };
     //methods
     CthulhuCharacterEditComponent.prototype.validate = function () {
-        alert("You clicked on validate!");
+        this.characterService.update(this.mycharacter);
     };
     CthulhuCharacterEditComponent.prototype.increment = function (skill) {
         if (this.isJobSkill(skill)) {

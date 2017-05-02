@@ -2,6 +2,7 @@ import { Component, Input, OnInit}      from '@angular/core';
 import { ICaracteristic }               from './models/ICaracteristic';
 import { IGame }                        from './models/IGame';
 import { CharacterService }             from './services/character.service';
+import { ICareer }                      from './models/ICareer';
 
 @Component({
     moduleId:module.id,
@@ -12,18 +13,20 @@ import { CharacterService }             from './services/character.service';
 
 
 export class FalloutCharacterCreationComponent implements OnInit {
-    CharDTOBattr: ICaracteristic[];
-
     @Input()
     game:IGame;
 
+    CharDTOBattr: ICaracteristic[];
+    career:ICareer;
+
     ngOnInit():void{
         this.CharDTOBattr = new Array<ICaracteristic>();
+        this.career = this.game.professions[0];
     }
 
     constructor(private characterService:CharacterService){}
 
-        AddOne(battr:ICaracteristic):void{
+    AddOne(battr:ICaracteristic):void{
         if(battr.value < battr.max && this.checkCurrent()<31)
         battr.value += 1;
     }
@@ -57,7 +60,6 @@ export class FalloutCharacterCreationComponent implements OnInit {
         }
     }
 
-
     create(characterName:string, playerName:string, game:IGame){
 
         let included:string = "";
@@ -70,9 +72,16 @@ export class FalloutCharacterCreationComponent implements OnInit {
             alert("You haven't validate all your points. You have validate : " + included );
         }    
         else{
-            alert("Creation ongoing from 'creation-component' for game " + game.name + " with base attributes : " + this.CharDTOBattr.toString());
-            this.characterService.createWithBattr(characterName, playerName, game, this.CharDTOBattr);
+            alert("Creation ongoing from 'creation-component' for game " + game.name 
+            + " with base attributes : " + this.CharDTOBattr.toString());
+            
+            this.characterService.createWithBattr(characterName, playerName, game, this.career, this.CharDTOBattr);
         }
+    }
+
+    onChange(career:any){
+        alert(career.name);
+        this.career = career;
     }
 
 }

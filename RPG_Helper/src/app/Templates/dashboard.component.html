@@ -4,19 +4,19 @@
     
 <p>Selectionnez le jeu pour lequel vous souhaitez créer un personnage! </p>
 
-<select [(ngModel)]="selectedGame"> 
-    <option *ngFor="let game of games" [ngValue]="game">
-    {{game.name}}</option>
+<select [(ngModel)]="selectedGame"  (ngModelChange)="onChange($event)"> 
+    <option *ngFor="let game of games" [ngValue]="game" >
+        {{game.name}}
+    </option>
 </select>
 
 
-<!--<button (click)="onClick()">Click me</button>-->
 
 </div>
-<!--<button (click)="create()">Commencer</button>-->
 
 <div *ngIf="selectedGame">
     <button (click)="checkState()">Check current selected_game </button> |
+    <button (click)="game_change()">Changer de jeu</button>
 
     <div *ngIf="selectedGame.name == 'Fallout' ">
         <fallout-creation [game]="selectedGame"></fallout-creation>

@@ -1,26 +1,69 @@
     <h2>{{mycharacter.characterName}}</h2>
     {{mycharacter.careerName}} appartenant à {{mycharacter.playerName}}
     <br>
-    <button (click)="validate()">Valider</button>
+    <button (click)="validate(mycharacter)">Valider</button>
 
-    <h4>Base Attributes</h4>
-    <div *ngFor="let batr of mycharacter.baseAttr">
-        <label>{{batr.name}} :</label> {{batr.value}} sur un maximum de {{batr.max}}
+<!-- FIRST ROW -->
+    <div class="row">
+
+<!--COLUMN FOR BASE ATTR-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <h4>Base Attributes</h4>
+                <table class="table">
+                    <tr>
+                        <td>Base Attribute</td><td>Value</td>
+                    </tr>
+                    <tr *ngFor="let battr of mycharacter.baseAttr">
+                        <td>{{battr.name}}</td><td>{{battr.value}} (max : {{battr.max}} )</td>
+                    </tr>
+                </table>
+        </div>
+
+<!--COLUMN FOR STATS-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <h4>Stats</h4>
+
+            <table  class="table">
+                <tr>
+                    <td>Stat</td><td>Value</td>
+                </tr>
+                <tr *ngFor="let stat of mycharacter.stats">
+                    <td>{{stat.name}}</td><td>{{stat.value}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+<!--SECOND ROW-->
+    <div class="row">
+<!--COLUMN FOR SKILLS-->
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <h4>Skills</h4>
+            <table  class="table">
+                <tr>
+                    <td>Skill</td><td>Value</td><td>Actions</td>
+                </tr>
+                <tr *ngFor="let skill of mycharacter.skills">
+                    <td>{{skill.name}}</td>
+                    <td>{{skill.value}}</td>
+                    <td>    <button (click)="increment(skill)">+</button>
+                            <button (click)="decrement(skill)">-</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <h4>Spendable points</h4>
+            <table class="table">
+                <tr>
+                    <td>Spendable</td><td>Value</td>
+                </tr>
+                <tr *ngFor="let sPoint of mycharacter.spendPoints">
+                    <td>{{sPoint.name}}</td><td>{{sPoint.value}}</td>
+                </tr>
+            </table>
+        </div>
+
     </div>
     
-    <h4>Skills</h4>
-    <div *ngFor="let skill of mycharacter.skills">
-        <label>{{skill.name}}</label> {{skill.value}} % 
-        <button (click)="increment(skill)">+</button>
-        <button (click)="decrement(skill)">-</button>
-    </div>
-
-    <h4>Stats</h4>
-    <div *ngFor="let stat of mycharacter.stats">
-        <label>{{stat.name}}</label> {{stat.value}}
-    </div>
-
-    <h4>Spendable Points</h4>
-    <div *ngFor="let spoint of mycharacter.spendPoints">
-        <label>{{spoint.name}}</label> {{spoint.value}}
-    </div>
