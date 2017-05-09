@@ -39,10 +39,13 @@ export class CharacterService{
                 .catch(this.handleError);
     }
 
-
     
     create(characterName:string, playerName:string, game:IGame){
-        const url = `http://localhost:58225/api/create/`;
+        //URL FOR .NET API
+        //const url = `http://localhost:58225/api/create/`;
+
+        //URL FOR EXPRESS
+        const url = 'http://localhost:8000/characters'
 
         let myCharacter: Character_DTO = new Character_DTO();
         myCharacter.characterName = characterName;
@@ -62,7 +65,11 @@ export class CharacterService{
     }
 
     createWithBattr(characterName:string, playerName:string, game:IGame, career:ICareer, charDtoBattr:ICaracteristic[]){
-        const url = `http://localhost:58225/api/create/`;
+        //URL FOR .NET API
+        //const url = `http://localhost:58225/api/create/`;
+
+        //URL FOR EXPRESS
+        const url = 'http://localhost:8000/characters';
 
         let myCharacter: Character_DTO = new Character_DTO();
             myCharacter.characterName = characterName;
@@ -83,8 +90,12 @@ export class CharacterService{
 }
 
     update(aCharacter:Character){
-        const url = 'http://localhost:58225/api/update';
+        //URL FOR .NET API
+        //const url = 'http://localhost:58225/api/update';
         
+        //URL FOR EXPRESS:
+        const url = 'http://localhost:8000/characters'
+
         let headers = new Headers({headers: {'Content-Type': 'application/json'}});
         let options = new RequestOptions({headers:headers});
         console.log(aCharacter.baseAttr);

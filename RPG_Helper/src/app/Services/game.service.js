@@ -13,9 +13,13 @@ var http_1 = require('@angular/http');
 var GameService = (function () {
     function GameService(http) {
         this.http = http;
-        this.gamesUrl = 'http://localhost:58225/api/games/getAll';
+        //URL FOR .NET API
+        //private gamesUrl = 'http://localhost:58225/api/games/getAll';
+        //URL FOR EXPRESS
+        this.gamesUrl = 'http://localhost:8000/games';
     }
     GameService.prototype.getGames = function () {
+        console.log("Dashboard get games");
         return this.http.get(this.gamesUrl)
             .toPromise()
             .then(function (response) { return response.json(); });

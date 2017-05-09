@@ -4,11 +4,16 @@ import { IGame } from '../models/IGame';
 
 @Injectable()
 export class GameService{
-    private gamesUrl = 'http://localhost:58225/api/games/getAll';
+    //URL FOR .NET API
+    //private gamesUrl = 'http://localhost:58225/api/games/getAll';
     
+    //URL FOR EXPRESS
+    private gamesUrl = 'http://localhost:8000/games';
+
     constructor(private http:Http){}
 
     getGames():Promise<IGame[]>{
+        console.log("Dashboard get games");
         return this.http.get(this.gamesUrl)
         .toPromise()
         .then(response => response.json() as IGame[]);

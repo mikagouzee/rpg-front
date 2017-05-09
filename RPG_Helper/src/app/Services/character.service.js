@@ -38,7 +38,10 @@ var CharacterService = (function () {
             .catch(this.handleError);
     };
     CharacterService.prototype.create = function (characterName, playerName, game) {
-        var url = "http://localhost:58225/api/create/";
+        //URL FOR .NET API
+        //const url = `http://localhost:58225/api/create/`;
+        //URL FOR EXPRESS
+        var url = 'http://localhost:8000/characters';
         var myCharacter = new character_DTO_1.Character_DTO();
         myCharacter.characterName = characterName;
         myCharacter.playerName = playerName;
@@ -52,7 +55,10 @@ var CharacterService = (function () {
             .catch(this.handleError);
     };
     CharacterService.prototype.createWithBattr = function (characterName, playerName, game, career, charDtoBattr) {
-        var url = "http://localhost:58225/api/create/";
+        //URL FOR .NET API
+        //const url = `http://localhost:58225/api/create/`;
+        //URL FOR EXPRESS
+        var url = 'http://localhost:8000/characters';
         var myCharacter = new character_DTO_1.Character_DTO();
         myCharacter.characterName = characterName;
         myCharacter.playerName = playerName;
@@ -68,7 +74,10 @@ var CharacterService = (function () {
             .catch(this.handleError);
     };
     CharacterService.prototype.update = function (aCharacter) {
-        var url = 'http://localhost:58225/api/update';
+        //URL FOR .NET API
+        //const url = 'http://localhost:58225/api/update';
+        //URL FOR EXPRESS:
+        var url = 'http://localhost:8000/characters';
         var headers = new http_1.Headers({ headers: { 'Content-Type': 'application/json' } });
         var options = new http_1.RequestOptions({ headers: headers });
         console.log(aCharacter.baseAttr);

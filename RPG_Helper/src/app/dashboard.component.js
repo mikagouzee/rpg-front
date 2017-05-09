@@ -19,7 +19,6 @@ var DashboardComponent = (function () {
         this.router = router;
         this.gameService = gameService;
     }
-    //private gamesUrl = 'http://localhost:58225/api/games/getAll';
     DashboardComponent.prototype.ngOnInit = function () {
         this.getGames();
     };

@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit{
     //games:string[];
     games:IGame[];
     selectedGame:string;
-    //private gamesUrl = 'http://localhost:58225/api/games/getAll';
 
     ngOnInit():void{
         this.getGames();
